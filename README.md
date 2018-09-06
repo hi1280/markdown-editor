@@ -1,6 +1,6 @@
 # \<markdown-editor\>
 
-
+[CodeMirror](http://www.codemirror.net)'s markdown mode into web components
 
 ## Install the Polymer-CLI
 
@@ -11,6 +11,29 @@ First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polyme
 ```
 $ polymer serve
 ```
+
+## Usage
+
+Basic usage
+```html
+<markdown-editor></markdown-editor>
+```
+
+Set text content
+```html
+<markdown-editor content="# New Document"></markdown-editor>
+```
+
+Event listener when text is updated
+```html
+<markdown-editor></markdown-editor>
+<script>
+  document.querySelector('markdown-editor').addEventListener('change', function (e) {
+      console.log(e.detail.getValue());
+  })
+</script>
+```
+`e.detail.getValue()` is text content
 
 ## Running Tests
 

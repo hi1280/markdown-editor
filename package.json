@@ -2,7 +2,8 @@
   "name": "markdown-editor",
   "main": "markdown-editor.js",
   "dependencies": {
-    "@polymer/polymer": "^3.0.0"
+    "@polymer/polymer": "^3.0.0",
+    "codemirror": "^5.40.0"
   },
   "devDependencies": {
     "@polymer/iron-demo-helpers": "^3.0.0-pre.19",

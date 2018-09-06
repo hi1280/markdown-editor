@@ -21,7 +21,7 @@
 
     <test-fixture id="ChangedPropertyTestFixture">
       <template>
-        <markdown-editor prop1="new-prop1"></markdown-editor>
+        <markdown-editor content="# New Document"></markdown-editor>
       </template>
     </test-fixture>
 
@@ -30,19 +30,19 @@
 
         test('instantiating the element with default properties works', () => {
           const element = fixture('BasicTestFixture');
-          assert.equal(element.prop1, 'markdown-editor');
+          assert.equal(element.content, '');
           const elementShadowRoot = element.shadowRoot;
-          const elementHeader = elementShadowRoot.querySelector('h2');
-          assert.equal(elementHeader.innerHTML, 'Hello markdown-editor!');
+          const elementHeader = elementShadowRoot.querySelector('textarea');
+          assert.equal(elementHeader.innerHTML, '');
         });
 
         test('setting a property on the element works', () => {
           // Create a test fixture
           const element = fixture('ChangedPropertyTestFixture');
-          assert.equal(element.prop1, 'new-prop1');
+          assert.equal(element.content, '# New Document');
           const elementShadowRoot = element.shadowRoot;
-          const elementHeader = elementShadowRoot.querySelector('h2');
-          assert.equal(elementHeader.innerHTML, 'Hello new-prop1!');
+          const elementHeader = elementShadowRoot.querySelector('textarea');
+          assert.equal(elementHeader.innerHTML, '# New Document');
         });
 
       });
