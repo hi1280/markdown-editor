@@ -4,5 +4,14 @@
     "rules": [
       "polymer-3"
     ]
-  }
+  },
+  "entrypoint": "index.html",
+  "shell": "markdown-editor.js",
+  "extraDependencies": [
+    "demo/**",
+    "node_modules/@webcomponents/**",
+    "node_modules/@polymer/**",
+    "node_modules/marked/**",
+    "node_modules/prismjs/**"
+  ]
 }
