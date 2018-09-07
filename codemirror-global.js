@@ -1,2 +1,2 @@
-import CodeMirror from "codemirror/src/codemirror.js";
+import CodeMirror from "./node_modules/codemirror/src/codemirror.js";
 window.CodeMirror = CodeMirror;

@@ -1,8 +1,7 @@
-import { html, PolymerElement } from '@polymer/polymer/polymer-element.js';
+import { html, PolymerElement } from "./node_modules/@polymer/polymer/polymer-element.js";
 import './codemirror-global.js';
-import CodeMirror from 'codemirror/src/codemirror.js';
-import 'codemirror/mode/markdown/markdown.js';
-
+import CodeMirror from "./node_modules/codemirror/src/codemirror.js";
+import "./node_modules/codemirror/mode/markdown/markdown.js";
 /**
  * `markdown-editor`
  * 
@@ -11,6 +10,7 @@ import 'codemirror/mode/markdown/markdown.js';
  * @polymer
  * @demo demo/index.html
  */
+
 class MarkdownEditor extends PolymerElement {
   static get template() {
     return html`
@@ -404,24 +404,31 @@ class MarkdownEditor extends PolymerElement {
     <textarea id="code">[[content]]</textarea>
     `;
   }
+
   static get properties() {
     return {
       content: {
         type: String,
         value: ''
-      },
+      }
     };
   }
+
   ready() {
     super.ready();
     this.editor = CodeMirror.fromTextArea(this.$.code, {
       mode: "markdown",
       extraKeys: {
         "Enter": 'newlineAndIndentContinueMarkdownList'
-      },
+      }
     });
-    this.editor.on('change', (e) => { this.dispatchEvent(new CustomEvent('change', {detail: e})); });
+    this.editor.on('change', e => {
+      this.dispatchEvent(new CustomEvent('change', {
+        detail: e
+      }));
+    });
   }
+
 }
 
 window.customElements.define('markdown-editor', MarkdownEditor);
